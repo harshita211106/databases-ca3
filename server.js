@@ -33,8 +33,6 @@ app.route("/restauants")
   .get(async (req, res) => res.json(await restaurants.find()))
   .post(async (req, res) => res.status(201).json(await new restaurants(req.body).save()));
 
-
-
 app.route(" restaurants/:id")
   .get(async (req, res) => res.json(await restaurants.findById(req.params.id) || { error: "Not found" }))
   .put(async (req, res) => res.json(await restaurants.findByIdAndUpdate(req.params.id, req.body, { new: true }) || { error: "Not found" }))
